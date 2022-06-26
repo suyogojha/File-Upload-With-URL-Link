@@ -1,0 +1,16 @@
+{% extends 'file/base.html' %}
+{% block body %}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        <input type="file" name="file" required="required"/>
+        <br />
+        <button type="submit" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-upload"></span> Upload</button>
+    </div>
+</form>
+
+ {% if upload_file_path %}
+    Uploaded at: <label class="text-primary">{{ upload_file_path }}</label>
+ {% endif %}
+
+{% endblock %}
